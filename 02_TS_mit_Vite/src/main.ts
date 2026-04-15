@@ -64,3 +64,5 @@ const add = (a: number, b: number): string => {
 function multiply(a: number, b: number): string {
   return (a * b).toString();
 }
+
+// In den meisten Fällen lassen wir TypeScript selbst die Typen 'inferieren'.
