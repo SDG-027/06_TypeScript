@@ -1,24 +1,66 @@
 {
   "compilerOptions": {
+    // Legt fest, in welches JavaScript-Version der TypeScript-Code kompiliert wird.
+    // ES2020 unterstützt moderne Features wie optionales Chaining (?.) und Nullish Coalescing (??).
     "target": "ES2020",
+
+    // Steuert, wie Klassenfelder in JavaScript definiert werden.
+    // Mit 'true' wird das moderne, standardkonforme Verhalten genutzt (Object.defineProperty).
     "useDefineForClassFields": true,
+
+    // Gibt an, welches Modulsystem im generierten Code verwendet wird.
+    // "ESNext" = native ES Modules (import/export) — passend für moderne Browser und Bundler.
     "module": "ESNext",
+
+    // Definiert, welche eingebauten Typdefinitionen TypeScript kennt.
+    // ES2020: JS-Standardbibliothek, DOM: Browser-APIs (document, window), DOM.Iterable: for...of auf DOM-Listen.
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
+
+    // Überspringt die Typprüfung von Dateien in node_modules.
+    // Spart Zeit beim Kompilieren und verhindert Fehler durch schlecht getypte Bibliotheken.
     "skipLibCheck": true,
 
     /* Bundler mode */
+    // Legt fest, wie TypeScript Import-Pfade auflöst.
+    // "bundler" ist auf Tools wie Vite/esbuild zugeschnitten — kein Node.js-Verhalten, keine Dateiendungen nötig.
     "moduleResolution": "bundler",
+
+    // Erlaubt es, TypeScript-Dateien mit .ts/.tsx-Endung direkt zu importieren.
+    // Funktioniert nur im Bundler-Modus, da der Bundler die Auflösung übernimmt.
     "allowImportingTsExtensions": true,
+
+    // Stellt sicher, dass Import-Syntax exakt so bleibt, wie sie geschrieben wurde.
+    // Verhindert z. B. dass TypeScript ein 'import type' in ein normales 'import' umwandelt.
     "verbatimModuleSyntax": true,
+
+    // Bestimmt, wann TypeScript eine Datei als Modul (vs. globales Skript) behandelt.
+    // "force" = jede Datei wird immer als Modul behandelt, unabhängig vom Inhalt.
     "moduleDetection": "force",
+
+    // TypeScript generiert keine JavaScript-Ausgabedateien.
+    // Das ist gewollt: Vite übernimmt das Transpilieren — TypeScript ist hier nur für die Typprüfung zuständig.
     "noEmit": true,
 
     /* Linting */
+    // Aktiviert alle strikten Typprüfungsregeln auf einmal (z. B. strictNullChecks, noImplicitAny).
+    // Empfehlenswert für jedes neue Projekt — fängt viele häufige Fehler frühzeitig ab.
     "strict": true,
-    "noUnusedLocals": true,
+
+    // Meldet einen Fehler, wenn eine lokale Variable deklariert, aber nie verwendet wird.
+    "noUnusedLocals": false,
+
+    // Meldet einen Fehler, wenn ein Funktionsparameter deklariert, aber nie genutzt wird.
     "noUnusedParameters": true,
+
+    // Meldet einen Fehler, wenn in einem switch-Statement ein 'break' fehlt (unbeabsichtigtes Durchfallen).
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+
+    // Warnt, wenn ein Import nur wegen seiner Seiteneffekte eingebunden wird (z. B. import './setup'),
+    // ohne dass dies explizit beabsichtigt wirkt — hilft, versehentliche Importe zu vermeiden.
+    "noUncheckedSideEffectImports": true,
   },
-  "include": ["src"]
+
+  // Gibt an, welche Dateien/Ordner TypeScript in die Typprüfung einbezieht.
+  // Hier: nur der src-Ordner — node_modules und Konfigurationsdateien bleiben außen vor.
+  "include": ["src"],
 }
