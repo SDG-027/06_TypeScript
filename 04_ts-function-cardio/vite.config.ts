@@ -9,8 +9,11 @@ export default defineConfig({
       typescript: true,
       overlay: {
         initialIsOpen: false,
-        position: 'br'
-      }
-    })
-  ]
+        position: 'br',
+      },
+    }),
+  ],
+  build: {
+    target: 'es2022',
+  },
 });

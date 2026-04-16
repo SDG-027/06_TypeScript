@@ -2,7 +2,7 @@
   "compilerOptions": {
     // Legt fest, in welches JavaScript-Version der TypeScript-Code kompiliert wird.
     // ES2020 unterstützt moderne Features wie optionales Chaining (?.) und Nullish Coalescing (??).
-    "target": "ES2020",
+    "target": "ESNext",
 
     // Steuert, wie Klassenfelder in JavaScript definiert werden.
     // Mit 'true' wird das moderne, standardkonforme Verhalten genutzt (Object.defineProperty).
@@ -14,7 +14,7 @@
 
     // Definiert, welche eingebauten Typdefinitionen TypeScript kennt.
     // ES2020: JS-Standardbibliothek, DOM: Browser-APIs (document, window), DOM.Iterable: for...of auf DOM-Listen.
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
 
     // Überspringt die Typprüfung von Dateien in node_modules.
     // Spart Zeit beim Kompilieren und verhindert Fehler durch schlecht getypte Bibliotheken.
